@@ -1,0 +1,34 @@
+<div class="post">
+  <h1>
+    {% if single_post %}
+    {{ title }} 
+    {% else %}
+    <a href="{{ url }}">{{ title }}</a>
+    {% endif %}
+  </h1>
+  {% if artist %}
+    <h2>{{ artist }}</h2>
+  {% endif %}
+  <div class="content">
+    {% if album_art %}
+      <img class="album_art" src="{{ album_art}}"/>
+    {% endif %}
+    {% if content %}
+      <div class="description">
+      {{ content }}
+      </div>
+    {% endif %}
+    {% if listen_url %}
+      <a href="{{ listen_url}}">listen</a>
+    {% endif %}
+    {% if purchase_url %}
+      <a href="{{ purchase_url}}">buy it</a>
+    {% endif %}
+  </div>
+  <div class="footer">
+    {% if author %}
+    <img class="author" alt="{{ author.name }}"/ src="{{ gravatar }}?s=30&d=mm">
+    <span class="date">{{ created_at | date: '%b %d %Y' }}</span>
+    {% endif %}
+  </div>
+</div>
