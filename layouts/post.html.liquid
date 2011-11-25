@@ -13,6 +13,9 @@
     {% if album_art %}
       <img class="album_art" src="{{ album_art}}"/>
     {% endif %}
+    {% if watch_url | split:. contains youtube %}
+      <iframe width="500" height="320" src="{{ watch_url | replace:'watch?v=','embed/'}}" frameborder="0" allowfullscreen></iframe>
+    {% endif %}
     {% if content %}
       <div class="description">
       {{ content }}
